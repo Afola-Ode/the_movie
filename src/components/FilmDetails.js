@@ -41,11 +41,11 @@ const FilmDetails = () => {
   const columnsPerEntity = 3;
 
   return (
-    <div className="inner-container">
-      <Link to="/" className="back">
-        <img src={arrow} alt="" /> <p>Back to list</p>
+    <div className='inner-container'>
+      <Link to='/' className='back'>
+        <img src={arrow} alt='' /> <p>Back to list</p>
       </Link>
-      <span className="heading"></span>
+      <span className='heading'></span>
       <h1>{film.title}</h1>
       <p>Director: {film.director}</p>
       <p>Producer: {film.producer}</p>
@@ -57,7 +57,7 @@ const FilmDetails = () => {
         <section key={entityType}>
           <h2>{entityType.charAt(0).toUpperCase() + entityType.slice(1)}</h2>
           <ul>
-            <div className="columns">
+            <div className='columns'>
               {Array.from({ length: columnsPerEntity }).map((_, index) => {
                 const startEntityIndex = index * columnsPerEntity;
                 const columnEntities = entityData.slice(
@@ -66,7 +66,7 @@ const FilmDetails = () => {
                 );
 
                 return (
-                  <div className="column" key={index}>
+                  <div className='column' key={index}>
                     <ul>
                       {columnEntities.map((entity) => (
                         <li key={entity.name}>{entity.name}</li>
