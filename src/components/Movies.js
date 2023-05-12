@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import FilmDetails from "./FilmDetails";
 
 const Card = ({ film }) => {
   const { title, release_date, opening_crawl } = film;
@@ -17,13 +19,12 @@ const Card = ({ film }) => {
   }
   const cutText = cutString(opening_crawl);
   return (
-    <div
-      className='card-container'
-    >
+    <div className='card-container'>
       <h1>{title}</h1>
-      <p className="date">{formattedDate}</p>
+      <p className='date'>{formattedDate}</p>
       <p className='summary'>{cutText}</p>
-      <a href='#'>More Info</a>
+      {/* <Link to={{ pathname: "/films", state: { film } }}>More Info</Link> */}
+      <Link to={"/films"} state= { { film }} >More Info</Link>
     </div>
   );
 };
@@ -41,11 +42,11 @@ const Movies = () => {
   }, []);
 
   return (
-    <section className='movies-container'>
-      {films.map((film, index) => (
-        <Card film={film} key={index} />
-      ))}
-    </section>
+      <section className='movies-container'>
+        {films.map((film, index) => (
+          <Card film={film} key={index} />
+        ))}
+      </section>
   );
 };
 
